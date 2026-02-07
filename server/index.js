@@ -231,6 +231,9 @@ app.post('/api/content', authenticateToken, (req, res) => {
 
 // Basic Health Check
 // Serve static files from the React frontend app
+// Serve static files from the React frontend app
+// IN DOCKER: dist is at /dist, server is at /app. __dirname is /app.
+// path.join(__dirname, '../dist') resolves to /dist. This is correct.
 const buildPath = path.join(__dirname, '../dist');
 app.use(express.static(buildPath));
 
