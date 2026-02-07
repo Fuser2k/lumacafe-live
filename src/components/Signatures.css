@@ -1,0 +1,200 @@
+.signatures-section {
+    width: 100%;
+    background-color: var(--color-primary);
+    /* Turquoise Main */
+    padding: 6rem 2rem;
+    position: relative;
+    z-index: 5;
+    /* Above video overlay if overlapping */
+    overflow: hidden;
+    /* Clip decorations */
+}
+
+.signatures-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+    position: relative;
+    flex-wrap: wrap;
+    /* Responsive wrap */
+    z-index: 2;
+    /* Content above decorations */
+}
+
+.signature-category {
+    flex: 1;
+    min-width: 300px;
+}
+
+.category-title {
+    font-family: var(--font-heading);
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.category-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-accent);
+    /* Yellow */
+}
+
+.signature-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.signature-card {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.signature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.card-image-wrapper {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 2px solid var(--color-accent);
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-details {
+    margin-left: 1.5rem;
+    flex: 1;
+    color: #fff;
+}
+
+.card-details h4 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+    letter-spacing: 1px;
+}
+
+.card-details p {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 0.5rem;
+}
+
+.card-details .price {
+    font-family: var(--font-heading);
+    color: var(--color-accent);
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.signature-divider {
+    width: 1px;
+    background: rgba(255, 255, 255, 0.2);
+    align-self: stretch;
+    margin: 0 1rem;
+}
+
+/* Decorative Elements Styles */
+.deco-element {
+    position: absolute;
+    z-index: 1;
+    /* Behind content */
+    opacity: 0.15;
+    /* Subtle blend */
+    mix-blend-mode: multiply;
+    /* Darken blend for sketch effect */
+    pointer-events: none;
+}
+
+.deco-element img {
+    width: 100%;
+    height: auto;
+    /* filter removed to allow multiply blend to work correctly */
+}
+
+/* 1. Palm Island - Center Top/Middle */
+.deco-island {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+}
+
+/* 2. Pizza - Bottom Right (behind foods) */
+.deco-pizza {
+    bottom: -50px;
+    right: -50px;
+    width: 300px;
+    transform: rotate(15deg);
+}
+
+/* 3. Cocktail Jar - Top Left (behind drinks) */
+.deco-cocktail {
+    top: 20px;
+    left: -30px;
+    width: 250px;
+    transform: rotate(-10deg);
+}
+
+
+@media (max-width: 900px) {
+    .signatures-container {
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+    .signature-divider {
+        width: 100%;
+        height: 1px;
+        margin: 0;
+    }
+
+    /* Simple mobile deco positioning */
+    .deco-island {
+        width: 300px;
+        opacity: 0.1;
+    }
+
+    .deco-pizza {
+        width: 200px;
+        bottom: 20px;
+        right: -20px;
+    }
+
+    .deco-cocktail {
+        width: 180px;
+        top: 50px;
+        left: -20px;
+    }
+}

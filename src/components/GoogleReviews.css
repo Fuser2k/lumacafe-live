@@ -1,0 +1,150 @@
+.google-reviews-section {
+    width: 100%;
+    background-color: var(--color-primary);
+    /* Match Signatures section */
+    padding: 4rem 0 6rem;
+    position: relative;
+    z-index: 5;
+}
+
+.reviews-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Reuse typical category title style if global, or redefine here to match Signatures */
+.google-reviews-section .category-title {
+    font-family: var(--font-heading);
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+.google-reviews-section .category-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-accent);
+}
+
+.reviews-scroll-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    padding: 1rem 2rem 2rem 8rem;
+    /* Bottom padding for scrollbar/shadow space */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.reviews-scroll-wrapper::-webkit-scrollbar {
+    height: 6px;
+}
+
+.reviews-scroll-wrapper::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.reviews-scroll-wrapper::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.reviews-track {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    /* Ensure it expands horizontally */
+}
+
+.review-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 1.5rem;
+    width: 300px;
+    flex-shrink: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.reviewer-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+    /* Use site accent color */
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-family: var(--font-heading);
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+
+.reviewer-info h4 {
+    margin: 0;
+    font-size: 1rem;
+    color: #333;
+    font-family: var(--font-body);
+    font-weight: bold;
+}
+
+.stars {
+    display: flex;
+    gap: 2px;
+    margin-top: 2px;
+}
+
+.google-icon {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 1;
+    /* Make it fully visible */
+}
+
+.review-text {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+    /* Pushes date to bottom */
+    font-style: italic;
+}
+
+.review-date {
+    font-size: 0.8rem;
+    color: #999;
+    align-self: flex-end;
+}

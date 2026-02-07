@@ -1,0 +1,44 @@
+.video-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--color-primary);
+    /* Match hero bg */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Top Gradient Blend */
+.video-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    /* Length of the fade */
+    background: linear-gradient(to bottom, var(--color-primary) 10%, transparent);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.fullscreen-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+}
+
+/* Bottom Gradient Blend */
+.video-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(to top, var(--color-primary) 10%, transparent);
+    z-index: 2;
+    pointer-events: none;
+}

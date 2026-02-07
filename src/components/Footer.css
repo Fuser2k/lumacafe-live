@@ -1,0 +1,125 @@
+.site-footer {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 6rem 2rem 2rem;
+    /* Increased top padding to push logo down */
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 3rem;
+    /* Slightly reduced gap to keep integrity */
+    max-width: 1200px;
+    margin: 0 auto 0;
+    /* Removed bottom margin to control via footer-bottom margin */
+    text-align: center;
+    padding-left: 10rem;
+    /* Shifting content further to the right */
+}
+
+.footer-section h3 {
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+    /* Tighter headers */
+    letter-spacing: 1px;
+}
+
+.footer-section p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.3rem;
+    /* Tighter lines */
+}
+
+/* Force address to wrap to 2 lines */
+.footer-section.center p:nth-child(3) {
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.4;
+}
+
+/* ... existing social icons styles ... */
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.8rem;
+    padding-top: 2rem;
+    /* Increased padding */
+    margin-top: 4rem;
+    /* Added margin to push it away from content */
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.legal-links a {
+    color: #fff;
+    font-size: 0.9rem;
+    /* Slightly refined size */
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    opacity: 0.7;
+    /* Slightly more subtle until hover */
+    padding: 10px 20px;
+    /* Wider click area */
+    display: inline-block;
+}
+
+.legal-links a:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .site-footer {
+        padding-top: 4rem;
+    }
+
+    .footer-content {
+        gap: 2rem;
+    }
+}
+
+.footer-logo {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+    /* Reduced from 2rem/3rem to pull info up */
+}
+
+.footer-logo h2 {
+    font-size: 5rem;
+    /* Adjusted for balance */
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--color-text-white);
+    margin: 0;
+    line-height: 1;
+    opacity: 0.9;
+}
+
+@media (min-width: 769px) {
+    .footer-logo {
+        margin-bottom: 1.5rem;
+        /* Reduced from 3rem */
+    }
+
+    .footer-logo h2 {
+        font-size: 9rem;
+        /* Big logo */
+    }
+
+    .footer-bottom {
+        margin-top: 5rem;
+    }
+}

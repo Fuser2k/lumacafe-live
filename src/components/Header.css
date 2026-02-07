@@ -1,0 +1,118 @@
+.site-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--color-text-white);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-actions {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.btn-menu {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text-white);
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.btn-menu:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    text-shadow: 0 0 10px rgba(255, 216, 58, 0.6);
+}
+
+.btn-reserve {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.8rem;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: var(--color-text-white);
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: background 0.3s;
+}
+
+.btn-reserve:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-color: var(--color-text-white);
+}
+
+@media (max-width: 768px) {
+    .site-header {
+        padding: 0;
+    }
+
+    .scrolling-text-container {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .btn-reserve {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+}
+
+.scrolling-text-container {
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    color: var(--color-primary);
+    background-color: var(--color-accent);
+    font-weight: 800;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 0.5rem 0;
+    border-radius: 0;
+    margin-right: 0;
+    box-shadow: none;
+}
+
+.scrolling-text {
+    display: inline-flex;
+    width: max-content;
+    padding-left: 0;
+    animation: scroll-left 120s linear infinite;
+}
+
+.scrolling-text span {
+    display: inline-block;
+    padding-right: 0;
+    flex-shrink: 0;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}

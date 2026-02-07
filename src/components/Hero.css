@@ -1,0 +1,345 @@
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 2rem 2rem;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Background Elements */
+.sun-graphic {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    width: 50vh;
+    height: 50vh;
+    background: radial-gradient(circle, #ffe98a 20%, var(--color-accent) 70%);
+    border-radius: 50%;
+    opacity: 1;
+    z-index: 0;
+    box-shadow:
+        0 0 60px rgba(255, 216, 58, 0.6),
+        0 0 120px rgba(255, 216, 58, 0.4),
+        0 0 200px rgba(255, 160, 58, 0.2);
+    animation: sunPulse 4s infinite ease-in-out;
+}
+
+@keyframes sunPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 60px rgba(255, 216, 58, 0.6),
+            0 0 120px rgba(255, 216, 58, 0.4),
+            0 0 200px rgba(255, 160, 58, 0.2);
+        transform: translate(-50%, -60%) scale(1);
+    }
+
+    50% {
+        box-shadow:
+            0 0 100px rgba(255, 216, 58, 0.8),
+            0 0 160px rgba(255, 216, 58, 0.6),
+            0 0 250px rgba(255, 120, 58, 0.4);
+        transform: translate(-50%, -60%) scale(1.02);
+    }
+}
+
+.palm-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/palm_leaves.png');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: screen;
+    /* Since it's white on black, screen makes black transparent */
+}
+
+/* Content */
+.hero-content {
+    position: relative;
+    z-index: 5;
+    margin-bottom: 4rem;
+}
+
+.brand-name {
+    font-family: 'Brush Script MT', cursive;
+    /* Fallback or import script font */
+    font-size: 3rem;
+    color: var(--color-text-white);
+    margin-bottom: -1rem;
+    text-transform: none;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero-title {
+    font-size: clamp(3rem, 10vw, 8rem);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.hero-tagline {
+    font-size: 1rem;
+    letter-spacing: 3px;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.cta-button {
+    background-color: var(--color-text-white);
+    color: var(--color-primary);
+    padding: 1rem 3rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Hero Description Styles */
+.hero-description {
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--color-text-white);
+    margin-top: 8rem;
+}
+
+.hero-description h3 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    color: var(--color-primary);
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-description p {
+    font-size: 1.3rem;
+    font-weight: 900;
+    line-height: 1.4;
+    color: var(--color-text-white);
+    -webkit-text-stroke: 1.5px var(--color-primary);
+    paint-order: stroke fill;
+    opacity: 1;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer Features */
+.hero-features {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: auto;
+    z-index: 5;
+    gap: 2rem;
+}
+
+.section-label {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+/* Signature Cards */
+.cocktail-cards {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.cocktail-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    padding: 0.8rem;
+    border-radius: 12px;
+    text-align: left;
+    transition: transform 0.3s;
+    cursor: default;
+}
+
+.cocktail-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.card-image img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--color-accent);
+}
+
+.card-info h4 {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+}
+
+.card-info p {
+    font-size: 0.7rem;
+    opacity: 0.8;
+    font-family: var(--font-body);
+}
+
+/* Events */
+.events-section {
+    text-align: right;
+    min-width: 250px;
+}
+
+.event-list {
+    list-style: none;
+}
+
+.event-item {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+}
+
+.event-date {
+    color: var(--color-accent);
+    font-weight: 700;
+}
+
+@media (max-width: 900px) {
+    .hero-section {
+        padding: 60px 1rem 1rem;
+    }
+
+    .hero-features {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-bottom: 2rem;
+        gap: 2rem;
+    }
+
+    .events-section {
+        text-align: center;
+        width: 100%;
+        min-width: unset;
+    }
+
+    .event-item {
+        justify-content: center;
+    }
+
+    .hero-title {
+        font-size: clamp(3rem, 15vw, 5rem);
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-tagline {
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+    }
+
+    .brand-name {
+        font-size: 2rem;
+    }
+
+    .hero-description {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero-description h3 {
+        font-size: 1.3rem;
+    }
+
+    .hero-description p {
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+    }
+
+    /* Stack cocktail cards on very small screens */
+    .cocktail-cards {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .cocktail-card {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+.hero-description {
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--color-text-white);
+    margin-top: 8rem;
+}
+
+.hero-description h3 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    color: var(--color-primary);
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-description p {
+    font-size: 1.3rem;
+    font-weight: 900;
+    line-height: 1.4;
+    color: var(--color-text-white);
+    -webkit-text-stroke: 1.5px var(--color-primary);
+    paint-order: stroke fill;
+    opacity: 1;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* Re-applying media query at the end to ensure priority */
+@media (max-width: 900px) {
+    .hero-description {
+        margin-top: 0.5rem !important;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+        margin-bottom: 0px;
+    }
+}
