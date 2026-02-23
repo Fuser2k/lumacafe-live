@@ -219,7 +219,7 @@ const SiteContentEditor = ({ token }) => {
                         <InputField label="Email" value={content.contactEmail || ''} onChange={(v) => handleChange('contactEmail', v)} />
                         <InputField label="Instagram Handle (e.g. #luma.cafe)" value={content.contactInstagram || ''} onChange={(v) => handleChange('contactInstagram', v)} />
                         <InputField label="Instagram Link" value={content.contactInstagramLink || ''} onChange={(v) => handleChange('contactInstagramLink', v)} />
-                        <InputField label="Facebook Link" value={content.contactFacebookLink || ''} onChange={(v) => handleChange('contactFacebookLink', v)} />
+                        <InputField label="TikTok Link" value={content.contactTiktokLink || ''} onChange={(v) => handleChange('contactTiktokLink', v)} />
                         <InputField label="Footer Note (Bottom Right)" value={content.footerNote || ''} onChange={(v) => handleChange('footerNote', v)} />
                     </>
                 )}
