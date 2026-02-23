@@ -43,10 +43,10 @@ const ScrollShowcase = () => {
                     <img
                         ref={img2Ref}
                         src="/assets/makaron.png"
-                        alt="Sweet Macarons"
+                        alt="Frische Pasta"
                         className="rotating-img"
                     />
-                    <p className="img-desc">Süße Macarons</p>
+                    <p className="img-desc">Frische Pasta</p>
                 </div>
             </div>
         </section>

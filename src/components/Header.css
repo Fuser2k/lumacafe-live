@@ -98,7 +98,7 @@
     display: inline-flex;
     width: max-content;
     padding-left: 0;
-    animation: scroll-left 120s linear infinite;
+    animation: scroll-left 300s linear infinite;
 }
 
 .scrolling-text span {

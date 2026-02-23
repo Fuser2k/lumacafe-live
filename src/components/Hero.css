@@ -77,7 +77,7 @@
 .brand-name {
     font-family: 'Brush Script MT', cursive;
     /* Fallback or import script font */
-    font-size: 3rem;
+    font-size: 8rem;
     color: var(--color-text-white);
     margin-bottom: -1rem;
     text-transform: none;
@@ -269,7 +269,9 @@
     }
 
     .brand-name {
-        font-size: 2rem;
+        font-size: 5.5rem;
+        margin-right: 1.5rem;
+        /* Shift slightly to the left in mobile view */
     }
 
     .hero-description {
@@ -283,6 +285,10 @@
 
     .hero-description p {
         font-size: 1rem;
+        padding: 0 1.5rem;
+        line-height: 1.5;
+        -webkit-text-stroke: 0.5px var(--color-primary);
+        /* Less stroke for smaller text so it's readable */
     }
 
     .cta-button {

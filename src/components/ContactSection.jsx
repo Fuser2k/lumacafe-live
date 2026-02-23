@@ -45,12 +45,12 @@ const ContactSection = () => {
                     </div>
                     <h3>SOCIAL MEDIA</h3>
                     <div className="social-links">
-                        <a href={content.contactInstagramLink || "https://instagram.com/luma.cafe"} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <a href={content.contactInstagramLink || "https://www.instagram.com/luceamare.cafe/"} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                             Instagram
                         </a>
                         <span className="separator">•</span>
-                        <a href={content.contactFacebookLink || "https://facebook.com/lumacafe"} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                            Facebook
+                        <a href={content.contactTiktokLink || "https://www.tiktok.com/@luceamare.cafe"} target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                            TikTok
                         </a>
                     </div>
                 </div>

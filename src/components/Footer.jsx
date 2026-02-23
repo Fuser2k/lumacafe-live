@@ -19,18 +19,25 @@ const Footer = () => {
             </div>
             <div className="footer-content">
                 <div className="footer-section">
-                    <p style={{ justifyContent: 'center' }}>Folge uns auf Instagram:</p>
-                    <p style={{ justifyContent: 'center' }}><Instagram size={18} /> <strong>{content.contactInstagram || '#luma.cafe'}</strong></p>
+                    <p>Folge uns auf Instagram:</p>
+                    <p>
+                        <Instagram size={18} />
+                        <strong>
+                            <a href={content.contactInstagramLink || "https://www.instagram.com/luceamare.cafe/"} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+                                {content.contactInstagram || '@luceamare.cafe'}
+                            </a>
+                        </strong>
+                    </p>
                 </div>
 
                 <div className="footer-section center">
-                    <p style={{ justifyContent: 'center' }}><Mail size={18} /> {content.contactEmail || 'web@luma.cafe'}</p>
-                    <p style={{ justifyContent: 'center' }}><Phone size={18} /> {content.contactPhone || '+43 2243 32240'}</p>
-                    <p style={{ justifyContent: 'center' }}>{content.contactAddress || 'Strandbadstraße 16, 3400 Klosterneuburg, Österreich'}</p>
+                    <p><Mail size={18} /> {content.contactEmail || 'web@luma.cafe'}</p>
+                    <p><Phone size={18} /> {content.contactPhone || '+43 2243 32240'}</p>
+                    <p>{content.contactAddress || 'Strandbadstraße 16, 3400 Klosterneuburg, Österreich'}</p>
                 </div>
 
                 <div className="footer-section right">
-                    <p className="prosecco-note" style={{ justifyContent: 'center' }}>{content.footerNote || '*Gratis Prosecco einmal pro Frühstück, bis 11 Uhr.'}</p>
+                    <p className="prosecco-note">{content.footerNote || '*Gratis Prosecco einmal pro Frühstück, bis 11 Uhr.'}</p>
                 </div>
             </div>
             <div className="footer-bottom">

@@ -148,3 +148,26 @@
     color: #999;
     align-self: flex-end;
 }
+
+/* Mobile responsive fixes */
+@media (max-width: 768px) {
+    .reviews-scroll-wrapper {
+        padding: 1rem 1.5rem 2rem 1.5rem;
+        /* Removed the excessive 8rem left padding */
+    }
+
+    .reviews-track {
+        gap: 1rem;
+        /* Smaller gap on mobile */
+    }
+
+    .review-card {
+        width: 85vw;
+        /* Fills most of the screen but lets the next card peek through */
+        max-width: 320px;
+    }
+
+    .google-reviews-section .category-title {
+        font-size: 1.5rem;
+    }
+}

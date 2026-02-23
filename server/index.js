@@ -19,6 +19,9 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
+// Trust proxy for Traefik/Nginx
+app.set('trust proxy', 1);
+
 // Security Middleware
 app.use(helmet());
 app.use(cors({
@@ -30,7 +33,11 @@ app.use(express.json());
 const loginLimiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
     max: 5, // Limit each IP to 5 login requests per windowMs
-    message: "{ \"error\": \"Too many login attempts, please try again after 15 minutes\" }"
+    message: "{ \"error\": \"Too many login attempts, please try again after 15 minutes\" }",
+    standardHeaders: true,
+    legacyHeaders: false,
+    // Disable strict validation to work with Traefik
+    validate: { xForwardedForHeader: false }
 });
 
 // Serve static files (uploaded PDFs)
@@ -139,22 +146,29 @@ app.post('/api/menu', authenticateToken, (req, res) => {
 
 // POST Upload PDF (Protected)
 app.post('/api/upload-pdf', authenticateToken, (req, res) => {
+    console.log(`[UPLOAD START] Request received from user: ${req.user?.name}`);
+
     // Usage: upload.single('pdf')
     const startUpload = upload.single('pdf');
 
     startUpload(req, res, (err) => {
+        console.log('[UPLOAD CALLBACK] Multer processing finished.');
+
         if (err instanceof multer.MulterError) {
-            // A Multer error occurred when uploading.
+            console.error('[UPLOAD ERROR] Multer Error:', err);
             return res.status(400).json({ error: `Upload Error: ${err.message}` });
         } else if (err) {
-            // An unknown error occurred when uploading.
+            console.error('[UPLOAD ERROR] Unknown Error:', err);
             return res.status(400).json({ error: err.message });
         }
 
         // Everything went fine.
         if (!req.file) {
+            console.error('[UPLOAD ERROR] No file found in request.');
             return res.status(400).json({ error: "No file uploaded." });
         }
+
+        console.log(`[UPLOAD SUCCESS] File saved to: ${req.file.path}, Size: ${req.file.size}`);
         res.json({ message: "PDF uploaded successfully." });
     });
 });
