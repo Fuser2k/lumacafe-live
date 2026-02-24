@@ -22,7 +22,7 @@ const Signatures = () => {
                     <div className="signature-grid">
                         <div className="signature-card">
                             <div className="card-image-wrapper">
-                                <img src="/assets/tropical_cocktail.png" alt="Sunset Lover" />
+                                <img src={content.cocktail1Image || "/assets/tropical_cocktail.png"} alt="Sunset Lover" />
                             </div>
                             <div className="card-details">
                                 <h4>{content.cocktail1Title || 'Sunset Lover'}</h4>
@@ -31,7 +31,7 @@ const Signatures = () => {
                         </div>
                         <div className="signature-card">
                             <div className="card-image-wrapper">
-                                <img src="/assets/green_smoothie.png" alt="Green Detox" />
+                                <img src={content.cocktail2Image || "/assets/green_smoothie.png"} alt="Green Detox" />
                             </div>
                             <div className="card-details">
                                 <h4>{content.cocktail2Title || 'Green Detox'}</h4>
@@ -50,7 +50,7 @@ const Signatures = () => {
                     <div className="signature-grid">
                         <div className="signature-card">
                             <div className="card-image-wrapper">
-                                <img src="/assets/gourmet_pinsa.png" alt="Gourmet Pinsa" />
+                                <img src={content.dish1Image || "/assets/gourmet_pinsa.png"} alt="Gourmet Pinsa" />
                             </div>
                             <div className="card-details">
                                 <h4>{content.dish1Title || 'Gourmet Pinsa'}</h4>
@@ -59,7 +59,7 @@ const Signatures = () => {
                         </div>
                         <div className="signature-card">
                             <div className="card-image-wrapper">
-                                <img src="/assets/tropical_salad.png" alt="Summer Bowl" />
+                                <img src={content.dish2Image || "/assets/tropical_salad.png"} alt="Summer Bowl" />
                             </div>
                             <div className="card-details">
                                 <h4>{content.dish2Title || 'Summer Bowl'}</h4>

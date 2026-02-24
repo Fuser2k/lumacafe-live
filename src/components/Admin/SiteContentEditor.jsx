@@ -4,6 +4,7 @@ import axios from 'axios';
 import { defaultImpressum, defaultDatenschutz } from './defaultLegalContent';
 import RichTextEditor from './RichTextEditor';
 import { Type, Save, Layout, FileText, AlignLeft, Coffee, Scale } from 'lucide-react';
+import ImageUploader from './ImageUploader';
 
 const InputField = ({ label, value, onChange, type = 'text', help, maxLength }) => (
     <div style={{ marginBottom: '20px' }}>
@@ -146,10 +147,24 @@ const SiteContentEditor = ({ token }) => {
                         <h4 style={{ color: '#555', marginTop: '15px' }}>Cocktail 1 (Left)</h4>
                         <InputField label="Name" value={content.cocktail1Title || ''} onChange={(v) => handleChange('cocktail1Title', v)} />
                         <InputField label="Ingredients" value={content.cocktail1Desc || ''} onChange={(v) => handleChange('cocktail1Desc', v)} />
+                        <ImageUploader
+                            slot="cocktail1"
+                            currentImage={content.cocktail1Image}
+                            fallback="/assets/tropical_cocktail.png"
+                            token={token}
+                            onUploaded={(url) => handleChange('cocktail1Image', url)}
+                        />
 
                         <h4 style={{ color: '#555', marginTop: '15px' }}>Cocktail 2 (Right)</h4>
                         <InputField label="Name" value={content.cocktail2Title || ''} onChange={(v) => handleChange('cocktail2Title', v)} />
                         <InputField label="Ingredients" value={content.cocktail2Desc || ''} onChange={(v) => handleChange('cocktail2Desc', v)} />
+                        <ImageUploader
+                            slot="cocktail2"
+                            currentImage={content.cocktail2Image}
+                            fallback="/assets/green_smoothie.png"
+                            token={token}
+                            onUploaded={(url) => handleChange('cocktail2Image', url)}
+                        />
 
                         <hr style={{ margin: '20px 0', borderColor: '#eee' }} />
 
@@ -158,10 +173,24 @@ const SiteContentEditor = ({ token }) => {
                         <h4 style={{ color: '#555', marginTop: '15px' }}>Dish 1 (Left)</h4>
                         <InputField label="Name" value={content.dish1Title || ''} onChange={(v) => handleChange('dish1Title', v)} />
                         <InputField label="Description" value={content.dish1Desc || ''} onChange={(v) => handleChange('dish1Desc', v)} />
+                        <ImageUploader
+                            slot="dish1"
+                            currentImage={content.dish1Image}
+                            fallback="/assets/gourmet_pinsa.png"
+                            token={token}
+                            onUploaded={(url) => handleChange('dish1Image', url)}
+                        />
 
                         <h4 style={{ color: '#555', marginTop: '15px' }}>Dish 2 (Right)</h4>
                         <InputField label="Name" value={content.dish2Title || ''} onChange={(v) => handleChange('dish2Title', v)} />
                         <InputField label="Description" value={content.dish2Desc || ''} onChange={(v) => handleChange('dish2Desc', v)} />
+                        <ImageUploader
+                            slot="dish2"
+                            currentImage={content.dish2Image}
+                            fallback="/assets/tropical_salad.png"
+                            token={token}
+                            onUploaded={(url) => handleChange('dish2Image', url)}
+                        />
                     </>
                 )}
 

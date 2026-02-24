@@ -40,7 +40,7 @@ const loginLimiter = rateLimit({
     validate: { xForwardedForHeader: false }
 });
 
-// Serve static files (uploaded PDFs)
+// Serve static files (uploaded PDFs and images)
 app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
 
 // File Storage Config (Multer)
@@ -62,6 +62,35 @@ const upload = multer({
             cb(null, true);
         } else {
             cb(new Error('Only PDF files are allowed!'), false);
+        }
+    }
+});
+
+// Image Upload Config
+const SIGNATURES_DIR = path.join(__dirname, 'public/uploads/signatures');
+if (!fs.existsSync(SIGNATURES_DIR)) {
+    fs.mkdirSync(SIGNATURES_DIR, { recursive: true });
+}
+
+const imageStorage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, SIGNATURES_DIR);
+    },
+    filename: (req, file, cb) => {
+        const slot = req.body.slot || 'unknown';
+        const ext = path.extname(file.originalname) || '.png';
+        cb(null, `${slot}${ext}`);
+    }
+});
+
+const imageUpload = multer({
+    storage: imageStorage,
+    limits: { fileSize: 5 * 1024 * 1024 }, // 5MB
+    fileFilter: (req, file, cb) => {
+        if (file.mimetype.startsWith('image/')) {
+            cb(null, true);
+        } else {
+            cb(new Error('Only image files are allowed!'), false);
         }
     }
 });
@@ -241,6 +270,27 @@ app.post('/api/content', authenticateToken, (req, res) => {
         console.error('Error saving content data:', error);
         res.status(500).json({ error: "Failed to save content data." });
     }
+});
+
+// POST Upload Signature Image (Protected)
+app.post('/api/upload-image', authenticateToken, (req, res) => {
+    const startUpload = imageUpload.single('image');
+
+    startUpload(req, res, (err) => {
+        if (err instanceof multer.MulterError) {
+            return res.status(400).json({ error: `Upload Error: ${err.message}` });
+        } else if (err) {
+            return res.status(400).json({ error: err.message });
+        }
+
+        if (!req.file) {
+            return res.status(400).json({ error: 'No image uploaded.' });
+        }
+
+        const imageUrl = `/uploads/signatures/${req.file.filename}?t=${Date.now()}`;
+        console.log(`[IMAGE UPLOAD] Slot: ${req.body.slot}, File: ${req.file.filename}`);
+        res.json({ message: 'Image uploaded successfully.', imageUrl });
+    });
 });
 
 // Basic Health Check
