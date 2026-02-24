@@ -24,7 +24,7 @@ const AboutSection = () => {
                     <p>{content.aboutText4 || 'Luma Café steht für Genuss, Qualität und das Gefühl von Sommer – das ganze Jahr über.'}</p>
                 </div>
                 <div className="about-image">
-                    <img src="/assets/about-interior.png" alt="Luma Cafe Interior" />
+                    <img src={content.aboutImage || "/assets/about-interior.png"} alt="Luma Cafe Interior" />
                 </div>
             </div>
         </section>

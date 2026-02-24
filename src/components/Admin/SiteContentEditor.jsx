@@ -240,6 +240,15 @@ const SiteContentEditor = ({ token }) => {
                         <InputField label="Paragraph 2" value={content.aboutText2 || ''} onChange={(v) => handleChange('aboutText2', v)} type="textarea" />
                         <InputField label="Paragraph 3" value={content.aboutText3 || ''} onChange={(v) => handleChange('aboutText3', v)} type="textarea" />
                         <InputField label="Paragraph 4" value={content.aboutText4 || ''} onChange={(v) => handleChange('aboutText4', v)} type="textarea" />
+
+                        <h4 style={{ color: '#555', marginTop: '15px' }}>Section Image</h4>
+                        <ImageUploader
+                            slot="about"
+                            currentImage={content.aboutImage}
+                            fallback="/assets/about-interior.png"
+                            token={token}
+                            onUploaded={(url) => handleChange('aboutImage', url)}
+                        />
                     </>
                 )}
 
