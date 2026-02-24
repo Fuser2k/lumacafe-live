@@ -19,8 +19,8 @@ const Header = ({ onOpenMenu }) => {
 
     // Ensure text always has a separator at the end for clean repeating
     const baseText = scrollingText.trim().replace(/[•\s]+$/, '') + ' • ';
-    // Repeat enough times to guarantee seamless looping on all screen sizes
-    const repeatCount = Math.max(6, Math.ceil(200 / baseText.length));
+    // Keep total length under mobile browser render limits (~500 chars per span)
+    const repeatCount = Math.max(3, Math.min(8, Math.ceil(300 / baseText.length)));
     const displayedText = baseText.repeat(repeatCount);
 
     return (
