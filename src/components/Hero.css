@@ -75,8 +75,7 @@
 }
 
 .brand-name {
-    font-family: 'Brush Script MT', cursive;
-    /* Fallback or import script font */
+    font-family: var(--font-script), cursive;
     font-size: 8rem;
     color: var(--color-text-white);
     margin-bottom: -1rem;
@@ -236,6 +235,11 @@
 }
 
 @media (max-width: 900px) {
+    .sun-graphic {
+        animation: none !important;
+        /* Disabling heavy box-shadow parsing on mobile GPU to fix horrible lag */
+    }
+
     .hero-section {
         padding: 60px 1rem 1rem;
     }

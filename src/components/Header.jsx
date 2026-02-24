@@ -17,8 +17,8 @@ const Header = ({ onOpenMenu }) => {
             .catch(err => console.error("Failed to load header text", err));
     }, []);
 
-    // Repeat text to fill the bar
-    const displayedText = (scrollingText + " ").repeat(10);
+    // Repeat text just enough to fill the bar without overflowing mobile rendering memory limits
+    const displayedText = (scrollingText + " ").repeat(2);
 
     return (
         <header className="site-header">
