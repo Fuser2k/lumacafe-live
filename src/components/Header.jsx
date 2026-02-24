@@ -17,8 +17,11 @@ const Header = ({ onOpenMenu }) => {
             .catch(err => console.error("Failed to load header text", err));
     }, []);
 
-    // Repeat text just enough to fill the bar without overflowing mobile rendering memory limits
-    const displayedText = (scrollingText + " ").repeat(2);
+    // Ensure text always has a separator at the end for clean repeating
+    const baseText = scrollingText.trim().replace(/[•\s]+$/, '') + ' • ';
+    // Repeat enough times to guarantee seamless looping on all screen sizes
+    const repeatCount = Math.max(6, Math.ceil(200 / baseText.length));
+    const displayedText = baseText.repeat(repeatCount);
 
     return (
         <header className="site-header">
