@@ -98,10 +98,7 @@
     display: inline-flex;
     width: max-content;
     padding-left: 0;
-    animation: scroll-left 50s linear infinite;
-    will-change: transform;
-    transform: translateZ(0);
-    /* Force GPU layer for mobile */
+    animation: scroll-left 20s linear infinite;
 }
 
 .scrolling-text span {
@@ -116,6 +113,6 @@
     }
 
     100% {
-        transform: translateX(-50%);
+        transform: translateX(-25%);
     }
 }

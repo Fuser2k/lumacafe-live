@@ -17,18 +17,17 @@ const Header = ({ onOpenMenu }) => {
             .catch(err => console.error("Failed to load header text", err));
     }, []);
 
-    // Ensure text always has a separator at the end for clean repeating
+    // Ensure text always ends with a separator
     const baseText = scrollingText.trim().replace(/[•\s]+$/, '') + ' • ';
-    // Keep total length under mobile browser render limits (~500 chars per span)
-    const repeatCount = Math.max(3, Math.min(8, Math.ceil(300 / baseText.length)));
-    const displayedText = baseText.repeat(repeatCount);
 
     return (
         <header className="site-header">
             <div className="scrolling-text-container" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
                 <div className="scrolling-text">
-                    <span>{displayedText}</span>
-                    <span>{displayedText}</span>
+                    <span>{baseText}</span>
+                    <span>{baseText}</span>
+                    <span>{baseText}</span>
+                    <span>{baseText}</span>
                 </div>
             </div>
             <nav className="nav-actions">
