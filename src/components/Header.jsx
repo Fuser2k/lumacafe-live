@@ -17,15 +17,24 @@ const Header = ({ onOpenMenu }) => {
             .catch(err => console.error("Failed to load header text", err));
     }, []);
 
-    // Ensure text always ends with a separator
-    const baseText = scrollingText.trim().replace(/[•\s]+$/, '') + ' • ';
+    // Extract only the unique segment (remove duplicate repeats from admin input)
+    const raw = scrollingText.trim().replace(/[•\s]+$/, '');
+    // Split by bullet separator and find unique items
+    const parts = raw.split('•').map(s => s.trim()).filter(Boolean);
+    const seen = new Set();
+    const uniqueParts = [];
+    for (const part of parts) {
+        if (!seen.has(part)) {
+            seen.add(part);
+            uniqueParts.push(part);
+        }
+    }
+    const baseText = uniqueParts.join(' • ') + ' • ';
 
     return (
         <header className="site-header">
             <div className="scrolling-text-container" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
                 <div className="scrolling-text">
-                    <span>{baseText}</span>
-                    <span>{baseText}</span>
                     <span>{baseText}</span>
                     <span>{baseText}</span>
                 </div>
