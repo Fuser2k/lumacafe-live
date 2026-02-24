@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Oswald:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:wght@300;400;500;600&family=Oswald:wght@400;500;700&display=swap');
 
 :root {
   --color-primary: #3BB6D8;
@@ -8,7 +8,7 @@
 
   --font-heading: 'Oswald', sans-serif;
   --font-body: 'Montserrat', sans-serif;
-  --font-script: 'Great Vibes', cursive;
+  --font-script: 'Brush Script MT', 'Kaushan Script', cursive;
 }
 
 * {
