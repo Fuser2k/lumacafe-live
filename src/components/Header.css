@@ -98,21 +98,10 @@
     display: inline-flex;
     width: max-content;
     padding-left: 0;
-    animation: scroll-left 20s linear infinite;
 }
 
 .scrolling-text span {
     display: inline-block;
     padding-right: 0;
     flex-shrink: 0;
-}
-
-@keyframes scroll-left {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
 }
