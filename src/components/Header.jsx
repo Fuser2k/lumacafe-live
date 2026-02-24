@@ -30,13 +30,15 @@ const Header = ({ onOpenMenu }) => {
         }
     }
     const baseText = uniqueParts.join(' • ') + ' • ';
+    // Repeat 4x per span to fill wide desktop screens, but since it's only the unique segment it stays under mobile GPU limits
+    const fillText = baseText.repeat(4);
 
     return (
         <header className="site-header">
             <div className="scrolling-text-container" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
                 <div className="scrolling-text">
-                    <span>{baseText}</span>
-                    <span>{baseText}</span>
+                    <span>{fillText}</span>
+                    <span>{fillText}</span>
                 </div>
             </div>
             <nav className="nav-actions">
