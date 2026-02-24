@@ -36,10 +36,16 @@ const ImageUploader = ({ slot, currentImage, fallback, token, onUploaded }) => {
                     }
                 }
             );
-            // Store the full image URL (with API base for dev compatibility)
             const imageUrl = res.data.imageUrl;
             onUploaded(imageUrl);
-            // Keep local preview active since server image might not be immediately available
+
+            // Auto-save the image URL to content so it persists immediately
+            const contentKey = `${slot}Image`;
+            await axios.post(
+                `${apiBase}/api/content`,
+                { [contentKey]: imageUrl },
+                { headers: { 'Authorization': `Bearer ${token}` } }
+            );
         } catch (err) {
             console.error('Image upload failed:', err);
             alert('Resim yüklenemedi: ' + (err.response?.data?.error || err.message));
