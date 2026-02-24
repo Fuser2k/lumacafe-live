@@ -199,6 +199,33 @@ const SiteContentEditor = ({ token }) => {
                         <h3 style={{ marginTop: 0, color: '#333' }}>Pinsa & Cocktails Section</h3>
                         <InputField label="Section Title" value={content.pinsaCocktailTitle || ''} onChange={(v) => handleChange('pinsaCocktailTitle', v)} />
                         <InputField label="Section Description" value={content.pinsaCocktailDescription || ''} onChange={(v) => handleChange('pinsaCocktailDescription', v)} type="textarea" />
+
+                        <h4 style={{ color: '#555', marginTop: '15px' }}>Image 1 — Pinsa (Left)</h4>
+                        <ImageUploader
+                            slot="pinsa"
+                            currentImage={content.pinsaImage}
+                            fallback="/assets/pinsa.png"
+                            token={token}
+                            onUploaded={(url) => handleChange('pinsaImage', url)}
+                        />
+
+                        <h4 style={{ color: '#555', marginTop: '15px' }}>Image 2 — Combo (Center)</h4>
+                        <ImageUploader
+                            slot="combo"
+                            currentImage={content.comboImage}
+                            fallback="/assets/pinsa_cocktail_combo.png"
+                            token={token}
+                            onUploaded={(url) => handleChange('comboImage', url)}
+                        />
+
+                        <h4 style={{ color: '#555', marginTop: '15px' }}>Image 3 — Cocktail (Right)</h4>
+                        <ImageUploader
+                            slot="cocktail"
+                            currentImage={content.cocktailImage}
+                            fallback="/assets/cocktail.png"
+                            token={token}
+                            onUploaded={(url) => handleChange('cocktailImage', url)}
+                        />
                     </>
                 )}
 
