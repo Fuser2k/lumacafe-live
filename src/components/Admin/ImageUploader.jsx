@@ -6,15 +6,18 @@ const ImageUploader = ({ slot, currentImage, fallback, token, onUploaded }) => {
     const fileRef = useRef(null);
     const [uploading, setUploading] = useState(false);
     const [preview, setPreview] = useState(null);
+    const [imgError, setImgError] = useState(false);
 
-    const displayImage = preview || currentImage || fallback;
+    const displayImage = preview || (imgError ? fallback : (currentImage || fallback));
 
     const handleUpload = async (e) => {
         const file = e.target.files[0];
         if (!file) return;
 
         // Show local preview immediately
-        setPreview(URL.createObjectURL(file));
+        const localUrl = URL.createObjectURL(file);
+        setPreview(localUrl);
+        setImgError(false);
         setUploading(true);
 
         const formData = new FormData();
@@ -22,8 +25,9 @@ const ImageUploader = ({ slot, currentImage, fallback, token, onUploaded }) => {
         formData.append('slot', slot);
 
         try {
+            const apiBase = import.meta.env.VITE_API_URL || '';
             const res = await axios.post(
-                `${import.meta.env.VITE_API_URL || ''}/api/upload-image`,
+                `${apiBase}/api/upload-image`,
                 formData,
                 {
                     headers: {
@@ -32,13 +36,18 @@ const ImageUploader = ({ slot, currentImage, fallback, token, onUploaded }) => {
                     }
                 }
             );
-            onUploaded(res.data.imageUrl);
+            // Store the full image URL (with API base for dev compatibility)
+            const imageUrl = res.data.imageUrl;
+            onUploaded(imageUrl);
+            // Keep local preview active since server image might not be immediately available
         } catch (err) {
             console.error('Image upload failed:', err);
             alert('Resim yüklenemedi: ' + (err.response?.data?.error || err.message));
             setPreview(null);
         } finally {
             setUploading(false);
+            // Reset file input so same file can be re-selected
+            if (fileRef.current) fileRef.current.value = '';
         }
     };
 
@@ -56,12 +65,19 @@ const ImageUploader = ({ slot, currentImage, fallback, token, onUploaded }) => {
             <img
                 src={displayImage}
                 alt={slot}
+                onError={() => {
+                    if (!imgError) {
+                        setImgError(true);
+                        setPreview(null);
+                    }
+                }}
                 style={{
                     width: '70px',
                     height: '70px',
                     objectFit: 'cover',
                     borderRadius: '50%',
-                    border: '2px solid #3BB6D8'
+                    border: '2px solid #3BB6D8',
+                    background: '#e0e0e0'
                 }}
             />
             <div style={{ flex: 1 }}>
@@ -71,7 +87,7 @@ const ImageUploader = ({ slot, currentImage, fallback, token, onUploaded }) => {
                 </p>
                 <input
                     type="file"
-                    accept="image/*"
+                    accept="image/jpeg,image/png,image/webp"
                     ref={fileRef}
                     onChange={handleUpload}
                     style={{ display: 'none' }}
