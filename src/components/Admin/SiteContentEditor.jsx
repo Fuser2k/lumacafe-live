@@ -208,6 +208,7 @@ const SiteContentEditor = ({ token }) => {
                             token={token}
                             onUploaded={(url) => handleChange('pinsaImage', url)}
                         />
+                        <InputField label="Caption" value={content.pinsaCaption || ''} onChange={(v) => handleChange('pinsaCaption', v)} />
 
                         <h4 style={{ color: '#555', marginTop: '15px' }}>Image 2 — Combo (Center)</h4>
                         <ImageUploader
@@ -217,6 +218,7 @@ const SiteContentEditor = ({ token }) => {
                             token={token}
                             onUploaded={(url) => handleChange('comboImage', url)}
                         />
+                        <InputField label="Caption" value={content.comboCaption || ''} onChange={(v) => handleChange('comboCaption', v)} />
 
                         <h4 style={{ color: '#555', marginTop: '15px' }}>Image 3 — Cocktail (Right)</h4>
                         <ImageUploader
@@ -226,6 +228,7 @@ const SiteContentEditor = ({ token }) => {
                             token={token}
                             onUploaded={(url) => handleChange('cocktailImage', url)}
                         />
+                        <InputField label="Caption" value={content.cocktailCaption || ''} onChange={(v) => handleChange('cocktailCaption', v)} />
                     </>
                 )}
 

@@ -28,21 +28,21 @@ const PinsaCocktailSection = () => {
                     <div className="image-card card-small">
                         <img src={content.pinsaImage || "/assets/pinsa.png"} alt="Gourmet Pinsa" />
                         <div className="image-caption">
-                            <h3>Handgemachte Pinsa</h3>
+                            <h3>{content.pinsaCaption || 'Handgemachte Pinsa'}</h3>
                         </div>
                     </div>
 
                     <div className="image-card card-large">
                         <img src={content.comboImage || "/assets/pinsa_cocktail_combo.png"} alt="Pinsa & Cocktail" />
                         <div className="image-caption">
-                            <h3>Das perfekte Duo</h3>
+                            <h3>{content.comboCaption || 'Das perfekte Duo'}</h3>
                         </div>
                     </div>
 
                     <div className="image-card card-small">
                         <img src={content.cocktailImage || "/assets/cocktail.png"} alt="Tropical Cocktail" />
                         <div className="image-caption">
-                            <h3>Signature Cocktails</h3>
+                            <h3>{content.cocktailCaption || 'Signature Cocktails'}</h3>
                         </div>
                     </div>
                 </div>
