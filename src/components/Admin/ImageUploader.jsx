@@ -21,8 +21,8 @@ const ImageUploader = ({ slot, currentImage, fallback, token, onUploaded }) => {
         setUploading(true);
 
         const formData = new FormData();
+        formData.append('slot', slot);   // MUST be before file so multer can read it
         formData.append('image', file);
-        formData.append('slot', slot);
 
         try {
             const apiBase = import.meta.env.VITE_API_URL || '';
