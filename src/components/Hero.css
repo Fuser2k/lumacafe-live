@@ -275,7 +275,9 @@
     .brand-name {
         font-size: 5.5rem;
         margin-right: 1rem;
-        /* Shift left so L aligns with A of ALWAYS */
+        margin-top: -3rem;
+        margin-bottom: 0.5rem;
+        /* Position between header and sun */
     }
 
     .hero-description {
