@@ -75,7 +75,7 @@
 }
 
 .brand-name {
-    font-family: var(--font-script), cursive;
+    font-family: var(--font-heading), sans-serif;
     font-size: 8rem;
     color: var(--color-text-white);
     margin-bottom: -1rem;
@@ -84,7 +84,7 @@
 }
 
 .hero-title {
-    font-size: clamp(3rem, 10vw, 8rem);
+    font-size: clamp(1.8rem, 6vw, 4.8rem);
     font-weight: 700;
     line-height: 1;
     margin-bottom: 1rem;
