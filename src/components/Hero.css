@@ -274,8 +274,8 @@
 
     .brand-name {
         font-size: 5.5rem;
-        padding-left: 1.5rem;
-        /* Shift slightly to the right so it centers above ALWAYS SUMMER */
+        margin-right: 2.5rem;
+        /* Shift left so L aligns with A of ALWAYS */
     }
 
     .hero-description {
